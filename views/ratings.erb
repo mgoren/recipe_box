@@ -1,0 +1,27 @@
+<h1>All Recipes by Rating</h1>
+
+<% if @recipes.any?() %>
+<ul>
+  <% @recipes.order("rating").reverse_order().each() do |recipe| %>
+  <li><a href="/recipes/<%= recipe.id() %>"><%= recipe.recipe_name() %></a> |
+    <div class="rating">
+      <% if recipe.rating() %>
+        <% 5.times() do |i| %>
+          <% if i <= recipe.rating() - 1 %>
+            <i class="fa fa-star"></i>
+          <% else %>
+            <i class="fa fa-star-o"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no recipes yet!</p>
+<% end %>
+
+<hr>
+
+<a href="/">Return to Main Page</a>

@@ -72,3 +72,8 @@ post("/rating") do
   recipe.update({:rating => new_rating})
   redirect("/recipes/#{recipe_id}")
 end
+
+get("/ratings") do
+  @recipes = Recipe.all()
+  erb(:ratings)
+end

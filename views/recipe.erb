@@ -2,13 +2,13 @@
 
 <div class="rating">
   <% if @recipe.rating() %>
-  <% 5.times() do |i| %>
-  <% if i <= @recipe.rating() - 1 %>
-  <i class="fa fa-star"></i>
-  <% else %>
-  <i class="fa fa-star-o"></i>
-  <% end %>
-  <% end %>
+    <% 5.times() do |i| %>
+      <% if i <= @recipe.rating() - 1 %>
+        <i class="fa fa-star"></i>
+      <% else %>
+        <i class="fa fa-star-o"></i>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 
@@ -66,3 +66,7 @@
   </div>
   <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
 </form>
+
+<hr>
+
+<a href="/">Return to Main Page</a>
