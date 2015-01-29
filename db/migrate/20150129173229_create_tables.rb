@@ -2,7 +2,7 @@ class CreateTables < ActiveRecord::Migration
   def change
 
     create_table(:recipes) do |t|
-      t.column(:dish_name, :string)
+      t.column(:recipe_name, :string)
       t.column(:instructions, :text)
       t.column(:rating, :integer)
       t.timestamp

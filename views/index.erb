@@ -1,0 +1,19 @@
+<h1>Recipe Box</h1>
+
+<% if Category.all().any?() %>
+  <ul>
+    <% Category.all().each() do |category| %>
+      <li><a href="/categories/<%= category.id() %>"><%= category.category_name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  No categories yet!
+<% end %>
+
+<form action="/categories" method="post">
+  <div class="form-group">
+    <label class="form-label" for="category_name">Add new category:</label>
+    <input class="form-control" id="category_name" type="text" name="category_name" autofocus>
+  </div>
+  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
+</form>

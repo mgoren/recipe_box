@@ -6,7 +6,7 @@ class AddIndexes < ActiveRecord::Migration
       add_index :categories_recipes, :category_id
       add_index :ingredients_recipes, :recipe_id
       add_index :ingredients_recipes, :ingredient_id
-      add_index :recipes, :dish_name
+      add_index :recipes, :recipe_name
       add_index :categories, :category_name
       add_index :ingredients, :ingredient_name
     end
@@ -16,7 +16,7 @@ class AddIndexes < ActiveRecord::Migration
       remove_index :categories_recipes, :category_id
       remove_index :ingredients_recipes, :recipe_id
       remove_index :ingredients_recipes, :ingredient_id
-      remove_index :recipes, :dish_name
+      remove_index :recipes, :recipe_name
       remove_index :categories, :category_name
       remove_index :ingredients, :ingredient_name
     end

@@ -1,0 +1,19 @@
+<h1>Pantry</h1>
+
+<% if Ingredient.all().any?() %>
+  <ul>
+    <% Ingredient.all().each() do |ingredient| %>
+    <li><%= ingredient.ingredient_name() %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No ingredients in your pantry!</p>
+<% end %>
+
+<form action="/ingredients" method="post">
+  <div class="form-group">
+    <label class="form-label" for="ingredient_name">Add new ingredient:</label>
+    <input class="form-control" id="ingredient_name" type="text" name="ingredient_name" autofocus>
+  </div>
+  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
+</form>

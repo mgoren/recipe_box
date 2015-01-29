@@ -1,0 +1,20 @@
+<h1><%= @category.category_name() %></h1>
+
+<% if @category.recipes().any?() %>
+  <ul>
+    <% @category.recipes().each() do |recipe| %>
+      <li><a href="/recipes/<%= recipe.id() %>"><%= recipe.recipe_name() %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no recipes yet!</p>
+<% end %>
+
+<form action="/recipes" method="post">
+  <input type="hidden" name="category_id" value="<%= @category.id() %>">
+  <div class="form-group">
+    <label class="form-label" for="recipe_name">Add new recipe:</label>
+    <input class="form-control" id="recipe_name" type="text" name="recipe_name" autofocus>
+  </div>
+  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
+</form>
