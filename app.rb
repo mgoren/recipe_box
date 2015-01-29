@@ -23,7 +23,7 @@ end
 post("/recipes") do
   recipe_name = params["recipe_name"]
   category = Category.find(params["category_id"].to_i())
-  dish = category.recipes.create({:recipe_name => recipe_name})
+  dish = category.recipes.create({:recipe_name => recipe_name, :rating => 0 })
   redirect("/categories/#{category.id()}")
 end
 
@@ -50,4 +50,20 @@ post("/ingredients") do
     Ingredient.create({:ingredient_name => new_ingredient})
     redirect("/ingredients")
   end
+end
+
+post("/instructions") do
+  new_instructions = params["instruction"]
+  recipe_id = params["recipe_id"]
+  recipe = Recipe.find(recipe_id.to_i())
+  recipe.update({:instructions => new_instructions})
+  redirect("/recipes/#{recipe_id}")
+end
+
+post("/rating") do
+  new_rating = params["rating"]
+  recipe_id = params["recipe_id"]
+  recipe = Recipe.find(recipe_id.to_i())
+  recipe.update({:rating => new_rating})
+  redirect("/recipes/#{recipe_id}")
 end

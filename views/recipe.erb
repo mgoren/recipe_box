@@ -1,5 +1,19 @@
 <h1><%= @recipe.recipe_name() %></h1>
 
+<div class="rating">
+  <% if @recipe.rating() %>
+  <% 5.times() do |i| %>
+  <% if i <= @recipe.rating() - 1 %>
+  <i class="fa fa-star"></i>
+  <% else %>
+  <i class="fa fa-star-o"></i>
+  <% end %>
+  <% end %>
+  <% end %>
+</div>
+
+<hr>
+
 <% if @recipe.ingredients().any?() %>
 <ul>
   <% @recipe.ingredients().each() do |ingredient| %>
@@ -10,11 +24,45 @@
 <p>There are no ingredients yet!</p>
 <% end %>
 
+<hr>
+
+<div class="instruction-box">
+<% if @recipe.instructions() %>
+  <p><%= @recipe.instructions() %></p>
+<% else %>
+  <p>Instructions haven't been added yet!</p>
+<% end %>
+</div>
+
+<hr>
+
 <form action="/ingredients" method="post">
   <input type="hidden" name="recipe_id" value="<%= @recipe.id() %>">
   <div class="form-group">
     <label class="form-label" for="ingredient_name">Add new ingredient:</label>
     <input class="form-control" id="ingredient_name" type="text" name="ingredient_name" autofocus>
+  </div>
+  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
+</form>
+
+<hr>
+
+<form action="/instructions" method="post">
+  <input type="hidden" name="recipe_id" value="<%= @recipe.id() %>">
+  <div class="form-group">
+    <label class="form-label" for="instruction">Add instructions:</label>
+    <input class="form-control" id="instruction" type="text" name="instruction">
+  </div>
+  <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
+</form>
+
+<hr>
+
+<form action="/rating" method="post">
+  <input type="hidden" name="recipe_id" value="<%= @recipe.id() %>">
+  <div class="form-group">
+    <label class="form-label" for="rating">Add rating:</label>
+    <input class="form-control" id="rating" type="number" name="rating">
   </div>
   <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
 </form>
