@@ -77,3 +77,8 @@ get("/ratings") do
   @recipes = Recipe.all()
   erb(:ratings)
 end
+
+get("/ingredients/:id") do
+  @ingredient = Ingredient.find(params["id"].to_i())
+  erb(:ingredient)
+end

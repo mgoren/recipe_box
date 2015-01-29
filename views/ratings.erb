@@ -3,7 +3,7 @@
 <% if @recipes.any?() %>
 <ul>
   <% @recipes.order("rating").reverse_order().each() do |recipe| %>
-  <li><a href="/recipes/<%= recipe.id() %>"><%= recipe.recipe_name() %></a> |
+  <li><a href="/recipes/<%= recipe.id() %>"><span class="recipe_name"><%= recipe.recipe_name() %></span></a>
     <div class="rating">
       <% if recipe.rating() %>
         <% 5.times() do |i| %>

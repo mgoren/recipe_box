@@ -1,0 +1,11 @@
+<h1><%= @ingredient.ingredient_name() %></h1>
+
+<% if @ingredient.recipes().any?() %>
+<ul>
+  <% @ingredient.recipes().order("recipe_name").each() do |recipe| %>
+  <li><a href="/recipes/<%= recipe.id() %>"><%= recipe.recipe_name() %></a></li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no recipes using this ingredient yet!</p>
+<% end %>

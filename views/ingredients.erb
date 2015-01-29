@@ -3,7 +3,7 @@
 <% if Ingredient.all().any?() %>
   <ul>
     <% Ingredient.all().each() do |ingredient| %>
-    <li><%= ingredient.ingredient_name() %></li>
+    <li><a href="/ingredients/<%= ingredient.id() %>"><%= ingredient.ingredient_name() %></a></li>
     <% end %>
   </ul>
 <% else %>
