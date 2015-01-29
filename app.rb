@@ -23,7 +23,12 @@ end
 post("/recipes") do
   recipe_name = params["recipe_name"]
   category = Category.find(params["category_id"].to_i())
-  dish = category.recipes.create({:recipe_name => recipe_name, :rating => 0 })
+  dish = Recipe.find_by({:recipe_name => recipe_name})
+  if dish
+    category.recipes << dish
+  else
+    dish = category.recipes.create({:recipe_name => recipe_name, :rating => 0 })
+  end
   redirect("/categories/#{category.id()}")
 end
 

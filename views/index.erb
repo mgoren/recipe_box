@@ -3,6 +3,7 @@
 <% if Category.all().any?() %>
   <ul>
     <% Category.all().each() do |category| %>
+
       <li><a href="/categories/<%= category.id() %>"><%= category.category_name() %></a></li>
     <% end %>
   </ul>
