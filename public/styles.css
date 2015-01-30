@@ -50,3 +50,21 @@ h2 {
   display: inline-block;
   width: 150px;
 }
+
+.form-control {
+  appearance: none;
+  font-family: inherit;
+  font-size: inherit;
+  border: 0;
+  outline: 0;
+  box-shadow: none !important;
+  flex: 1 100%;
+  padding: .25rem .5rem;
+  border-bottom: 1px solid #d0dad8;
+  border-radius: 0px;
+  background: #FFF;
+  opacity: 0.3;
+  -webkit-transition-duration: .1s;
+  transition-duration: .1s
+
+}
