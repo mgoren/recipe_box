@@ -1,4 +1,4 @@
-<h1>Pantry</h1>
+<h2>Pantry</h2>
 
 <% if Ingredient.all().any?() %>
   <ul>
@@ -13,7 +13,7 @@
 <form action="/ingredients" method="post">
   <div class="form-group">
     <label class="form-label" for="ingredient_name">Add new ingredient:</label>
-    <input class="form-control" id="ingredient_name" type="text" name="ingredient_name" autofocus>
+    <input class="form-control" id="ingredient_name" type="text" name="ingredient_name">
   </div>
   <button type="submit" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-cutlery"></span>&nbsp; Add</button>
 </form>
